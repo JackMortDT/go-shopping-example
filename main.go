@@ -1,10 +1,8 @@
 package main
 
-func main() {
-	power := getPower()
-	println(power)
-}
+import "fmt"
 
-func getPower() int { 
-	return 9001
+func main() {
+	name, power := "Goku", 9000
+  fmt.Printf("%s's power is over %d\n", name, power)
 }
