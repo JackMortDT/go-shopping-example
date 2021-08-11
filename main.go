@@ -1,17 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"sort"
+)
 
 func main() {
-	scores := []int{1, 2, 3, 4, 5}
-	scores=  removeAtIndex(scores, 2)
-	fmt.Println(scores) // [1, 2, 5, 4]
-}
+	scores := make([]int, 100)
+	for i := 0; i < 100; i++ {
+		scores[i] = int(rand.Int31n(1000))
+	}
 
-// No preserva el orden
-func removeAtIndex(source[]int, index int) []int {
-	lastIndex := len(source) - 1
-	// Intercambia el último valor y el valor que queremos eliminar
-	source[index], source[lastIndex] = source[lastIndex], source[index]
-	return source[:lastIndex]
+	sort.Ints(scores)
+
+	worst := make([]int, 5)
+	copy(worst, scores[:5])
+	fmt.Println(worst)
 }
