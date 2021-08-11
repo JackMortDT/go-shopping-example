@@ -1,10 +1,20 @@
 package main
 
 import (
-  "shopping/logic"
   "fmt"
+  "os"
+  "strconv"
 )
 
 func main() {
-  fmt.Println(shopping.PriceCheck(4343))
+  if len(os.Args) != 2 {
+    os.Exit(1)
+  }
+
+  n, err := strconv.Atoi(os.Args[1])
+  if err != nil {
+    fmt.Println("not a valid number")
+  } else {
+    fmt.Println(n)
+  }
 }
