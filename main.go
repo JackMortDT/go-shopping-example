@@ -1,20 +1,16 @@
 package main
 
 import (
-  "fmt"
-  "os"
-  "strconv"
+	"fmt"
+	"os"
 )
 
 func main() {
-  if len(os.Args) != 2 {
-    os.Exit(1)
-  }
-
-  n, err := strconv.Atoi(os.Args[1])
+  file, err := os.Open("a_file_to_read")
   if err != nil {
-    fmt.Println("not a valid number")
-  } else {
-    fmt.Println(n)
+    fmt.Println(err)
+    return
   }
+  defer file.Close()
+  // read the file
 }
