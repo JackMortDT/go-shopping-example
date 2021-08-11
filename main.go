@@ -1,7 +1,7 @@
 package main
 
 import (
-  "shopping/src"
+  "shopping/logic"
   "fmt"
 )
 

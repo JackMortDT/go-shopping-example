@@ -1,11 +1,11 @@
 package shopping
 
 import (
-  "shopping/src/db"
+  "shopping/database"
 )
 
 func PriceCheck(itemId int) (float64, bool) {
-  item := db.LoadItem(itemId)
+  item := database.LoadItem(itemId)
   if item == nil {
     return 0, false
   }
