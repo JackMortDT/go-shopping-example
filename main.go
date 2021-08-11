@@ -1,7 +1,7 @@
 package main
 
 import (
-  "shopping/shopping"
+  "shopping/src"
   "fmt"
 )
 

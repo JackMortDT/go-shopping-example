@@ -1,12 +1,13 @@
-# Run app
+# Example Go app
+
+## Run app
 
 ```bash
 go run .
 ```
 
-# Build 
+## Build
 
 ```bash
 go build -o executable
 ```
-
