@@ -1,20 +1,15 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-	"sort"
-)
+import "fmt"
 
 func main() {
-	scores := make([]int, 100)
-	for i := 0; i < 100; i++ {
-		scores[i] = int(rand.Int31n(1000))
-	}
+  lookup := make(map[string]int)
+  lookup["goku"] = 9001
+  power, exists := lookup["vegeta"]
+  power2, exists2 := lookup["goku"]
 
-	sort.Ints(scores)
-
-	worst := make([]int, 5)
-	copy(worst, scores[:5])
-	fmt.Println(worst)
+  // prints 0, false
+  // 0 is the default value for an integer
+  fmt.Println(power, exists)
+  fmt.Println(power2, exists2)
 }
