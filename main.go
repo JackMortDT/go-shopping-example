@@ -7,25 +7,25 @@ import (
 )
 
 func main() {
-  c := make(chan int)
-  for i := 0; i < 5; i++ {
-    worker := &Worker{id: 1}
-    go worker.process(c)
-  }
+	c := make(chan int)
+	for i := 0; i < 5; i++ {
+		worker := &Worker{id: 1}
+		go worker.process(c)
+	}
 
-  for {
-    c <- rand.Int()
-    time.Sleep(time.Millisecond * 50)
-  }
+	for {
+		c <- rand.Int()
+		time.Sleep(time.Millisecond * 50)
+	}
 }
 
 type Worker struct {
-  id int
+	id int
 }
 
 func (w *Worker) process(c chan int) {
-  for {
-    data := <-c
-    fmt.Printf("worker %d got %d\n", w.id, data)
-  }
+	for {
+		data := <-c
+		fmt.Printf("worker %d got %d\n", w.id, data)
+	}
 }
