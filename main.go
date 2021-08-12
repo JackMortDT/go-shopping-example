@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
-var counter = 0
+var (
+	counter = 0
+	lock    sync.Mutex
+)
 
 func main() {
 	for i := 0; i < 20; i++ {
@@ -15,6 +19,8 @@ func main() {
 }
 
 func incr() {
+	lock.Lock()
+	defer lock.Unlock()
 	counter++
 	fmt.Println(counter)
 }
