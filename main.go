@@ -7,11 +7,9 @@ import (
 
 func main() {
 	fmt.Println("start")
-	go process()
+	go func() {
+		fmt.Println("processing")
+	}()
 	time.Sleep(time.Millisecond * 1000) // Esto es malo, no lo hagas!
 	fmt.Println("done")
-}
-
-func process() {
-	fmt.Println("processing")
 }
