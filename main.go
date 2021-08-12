@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"time"
 )
 
 func main() {
-	file, err := os.Open("a_file_to_read")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer file.Close()
-	// read the file
+	fmt.Println("start")
+	go process()
+	time.Sleep(time.Millisecond * 1000) // Esto es malo, no lo hagas!
+	fmt.Println("done")
+}
+
+func process() {
+	fmt.Println("processing")
 }
