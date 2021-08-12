@@ -5,11 +5,16 @@ import (
 	"time"
 )
 
+var counter = 0
+
 func main() {
-	fmt.Println("start")
-	go func() {
-		fmt.Println("processing")
-	}()
-	time.Sleep(time.Millisecond * 1000) // Esto es malo, no lo hagas!
-	fmt.Println("done")
+	for i := 0; i < 20; i++ {
+		go incr()
+	}
+	time.Sleep(time.Millisecond * 10)
+}
+
+func incr() {
+	counter++
+	fmt.Println(counter)
 }
